@@ -6,11 +6,10 @@ import openai
 def lambda_handler(event, context):
     prompt = event['prompt']
     generated_text = generate_text(prompt)
-    generated_summary_of_text = 'A Very Unsure Man' 
-    image = generate_image(generated_summary_of_text)
+    generated_title = generate_text('Write a title for a post with the following content' + generated_text)
     return {
-        'text': generated_text,
-        'images': image
+        'content': generated_text,
+        'title': generated_title
     }
      
 
@@ -27,12 +26,3 @@ def generate_text(prompt, model="text-davinci-002", max_tokens=1000):
     )
     return response.choices[0].text.strip()
     
-def generate_image(prompt):
-    response = openai.Image.create(
-        prompt=prompt,
-        n=1,
-        size="256x256"
-    )
-    image_url = response['data']
-
-    return image_url
