@@ -4,12 +4,12 @@ import openai
 
 
 def lambda_handler(event, context):
-    prompt = event['prompt']
-    generated_text = generate_text(prompt)
-    generated_title = generate_text('Write a title for a post with the following content' + generated_text)
+    #prompt = event['prompt']
+    #generated_text = generate_text(prompt)
+    #generated_title = generate_text('Write a title for a post with the following content :: ' + generated_text)
     return {
-        'content': generated_text,
-        'title': generated_title
+        'content': 'testing text',
+        'title': 'testing title'
     }
      
 
