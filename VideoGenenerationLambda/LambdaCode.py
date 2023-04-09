@@ -7,6 +7,11 @@ import boto3
 from PIL import Image
 import numpy as np
 import io
+import os
+
+
+print("PYTHONPATH:", os.environ.get('PYTHONPATH'))
+print("PATH:", os.environ.get('PATH'))
 
 def lambda_handler(event, context):
     parallel_results = event.get('parallelResults', [])
