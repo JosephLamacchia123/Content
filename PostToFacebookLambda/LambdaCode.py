@@ -18,8 +18,8 @@ def postToFacebook():
   
     payload = {
       "post": "Today is a great day!",
-      "platforms": ["facebook"],
-	    "mediaUrls": ["https://img.ayrshare.com/012/gb.jpg"],
+      "platforms": ["facebook","linkedin","twitter","tiktok"],
+	    "mediaUrls": [event['videoUrl']
       }
     logger.info('Payload :: ' + payload)
       
