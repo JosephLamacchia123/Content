@@ -3,7 +3,7 @@ import requests
 
 def lambda_handler(event, context):
     return {
-        'Images': urls
+        'Images': generate_images()
     }
     
     
