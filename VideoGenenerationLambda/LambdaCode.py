@@ -11,8 +11,13 @@ from moviepy.config import change_settings
 change_settings({"IMAGEMAGICK_BINARY": r"C:\Program Files\ImageMagick-7.1.1-Q16-HDRI\magick.exe"})
 
 def lambda_handler(event, context):
-    
-    return create_video(event['imageUrls'],'generatedVideo.mp4',30,3,event['content'],event['mp3Location'])
+    parallel_results = event.get('parallelResults', [])
+
+    # Access the 'content' and 'title' keys in the first item of the parallel_results list
+    if parallel_results:
+        content = parallel_results[0].get('content', '')
+
+    return create_video(event['imageUrls'],'generatedVideo.mp4',30,3,content,event['mp3Location'])
 
 def create_video_from_image_urls(image_urls, output_video, fps, display_duration,text,mp3Location):
     
@@ -47,8 +52,8 @@ def create_video_from_image_urls(image_urls, output_video, fps, display_duration
     #Creates final video
       final_clip.write_videofile(output_video,fps=30)
 
-def getMp3FileFromS3(s3_key)
+def getMp3FileFromS3(s3_key):
     s3 = boto3.client('s3')
-    response = s3.get_object(Bucket='generated-audio-repository', Key='audio/' + s3_key)
+    response = s3.get_object(Bucket='generated-audio-repository', Key=s3_key)
     file_content = response['Body'].read()
     return file_content
