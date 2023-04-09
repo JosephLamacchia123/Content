@@ -47,7 +47,7 @@ def create_video_from_image_urls(image_urls, output_video, fps, display_duration
     #Creates final video
       final_clip.write_videofile(output_video,fps=30)
 
-def getMp3FileFromS3(s3_key)
+def getMp3FileFromS3(s3_key):
     s3 = boto3.client('s3')
     response = s3.get_object(Bucket='generated-audio-repository', Key='audio/' + s3_key)
     file_content = response['Body'].read()
