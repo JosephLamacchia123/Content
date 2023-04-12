@@ -1,3 +1,4 @@
+import numpy as np
 from moviepy.editor import ImageSequenceClip, concatenate_videoclips, ImageClip, TextClip, CompositeVideoClip
 from moviepy.video.fx import all
 import requests
@@ -5,7 +6,6 @@ import textwrap
 import boto3
 
 from PIL import Image
-import numpy as np
 import io
 import os
 
