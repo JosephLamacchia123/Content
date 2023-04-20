@@ -16,5 +16,6 @@
       
  ## Scripts
  
- 1.) DeployLambda.sh <PathToLambdaFolder> <NameOfLambdaFunction>
+ 1.) DeployLambda.sh PathToLambdaFolder NameOfLambdaFunction
+ 
      This Script will deploy your local lambda code to AWS.
