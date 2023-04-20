@@ -14,4 +14,7 @@
       ng serve --open (This will start a NodeJs server to run the application and the --open flag will open the webpage in your browser) 
       
       
+ ## Scripts
  
+ 1.) DeployLambda.sh <PathToLambdaFolder> <NameOfLambdaFunction>
+     This Script will deploy your local lambda code to AWS.
