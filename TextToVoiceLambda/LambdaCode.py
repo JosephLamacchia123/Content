@@ -8,24 +8,23 @@ import io
 
 
 def lambda_handler(event, context):
-    parallel_results = event.get('parallelResults', [])
 
-    # Access the 'content' and 'title' keys in the first item of the parallel_results list
+    content = event['TextContent']['content']
     
-    content = parallel_results[0].get('content', '')
-    title = parallel_results[0].get('title', '')
-    
+    title =  event['TextContent']['title']
+    ssml = f"<speak><break time='2s'/>{content}<break time='2s'/></speak>"
     return {
-        'mp3Location': synthesize_speech(content)
+        'mp3Location': synthesize_speech(ssml,output_format='mp3',voice_id='Justin')
     }
     
     
-def synthesize_speech(text, output_format='mp3', voice_id='Joanna'):
+    
+    
+def synthesize_speech(text, output_format, voice_id):
     
     polly = boto3.client('polly')
-    response = polly.synthesize_speech(Text=text, OutputFormat=output_format, VoiceId=voice_id)
+    response = polly.synthesize_speech(Text=text, TextType='ssml', OutputFormat=output_format, VoiceId=voice_id)
 
-        
     s3 = boto3.client('s3')
     audio_file_key = 'audio/' + generate_random_string(10) + '.mp3'
 

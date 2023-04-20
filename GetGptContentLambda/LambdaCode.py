@@ -4,18 +4,18 @@ import openai
 
 
 def lambda_handler(event, context):
-    #prompt = event['prompt']
-    #generated_text = generate_text(prompt)
-    #generated_title = generate_text('Write a title for a post with the following content :: ' + generated_text)
+    prompt = event['prompt']
+    generated_text = generate_text(prompt)
+    generated_title = generate_text('Write a title for a post with the following content :: ' + generated_text)
     return {
-        'content': 'testing text',
-        'title': 'testing title'
+        'content': generated_text,
+        'title': generated_title
     }
      
 
 openai.api_key = os.environ['OpenAiKey']
 
-def generate_text(prompt, model="text-davinci-002", max_tokens=1000):
+def generate_text(prompt, model="text-davinci-002", max_tokens=3000):
     response = openai.Completion.create(
         engine=model,
         prompt=prompt,

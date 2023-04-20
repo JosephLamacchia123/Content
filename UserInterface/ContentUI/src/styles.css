@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+
+body{
+    background-color: rgb(219, 195, 217);
+}
+h1{
+    padding-bottom: 25px;
+    color: rgb(44, 31, 114);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 100px;
+    text-decoration-color: rgb(139, 135, 133);
+    border-bottom: 1px solid;
+    border-color: black;
+    
+}
+
+h3{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .dropdown-container {
+    width: 70%; /* Adjust this value to set the desired width */
+    padding-right: 5px;
+  }
+
+  profileimage {
+    width: 200px; /* Increase the width as desired */
+    height: 200px; /* Increase the height as desired */
+    padding-left: 45;
+    object-fit: cover;
+    clip-path: circle(70%);
+    justify-content: center;
+  }
+
+  .side-by-side-container {
+    display: flex; /* Use Flexbox for layout */
+    align-items: center; /* Vertically align the items at their center */
+    gap: 5px; /* Add some space between the elements */
+  }
+
+
+
+  .custom-btn {
+    background-color: rgb(44, 31, 114);
+    border-color: rgb(44, 31, 114);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: larger;
+
+  }
+  
+  .custom-btn:hover,
+  .custom-btn:focus,
+  .custom-btn:active {
+    background-color: rgb(14, 7, 53); 
+    /* border-color: #your-darker-color; / */
+  }
