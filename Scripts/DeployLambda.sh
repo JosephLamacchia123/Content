@@ -16,7 +16,7 @@ cd $FOLDER_PATH
 
 rm -rf venv
 # Create a virtual python environment
-python -m venv venv
+py -m venv venv
 
 # Activate the virtual environment
 source venv/Scripts/activate
@@ -26,7 +26,7 @@ source venv/Scripts/activate
 mkdir package
 
 # Install the dependencies into the package directory
-python -m pip install -r requirements.txt --no-user -t package
+py -m pip install -r requirements.txt --no-user -t package
 
 
 # Copy the LambdaCode.py into the package directory
@@ -43,7 +43,7 @@ cd ../
 
 
 echo "Creating deployment package zip file..."
-python ../../Scripts/Zip.py package deployment_package.zip
+py ../Scripts/Zip.py package deployment_package.zip
 
 
 echo "Uploading deployment package to S3..."

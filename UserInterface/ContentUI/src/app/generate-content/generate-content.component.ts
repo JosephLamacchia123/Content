@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ProfileManagerService } from '../profilemanager.service';
 import { Profile } from '../dropdown/dropdown.component';
-import { InvokeContentGeneratorService } from '../invoke-content-generator.service';
 
 
 @Component({
