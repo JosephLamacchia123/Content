@@ -1,9 +1,22 @@
-from newsdataapi import NewsDataApiClient
+import requests
 
-# API key authorization, Initialize the client with your API key
+def getNewsArticle():
+    site = "https://gnews.io/api/v4/top-headlines?lang=en&country=us"
+    count = 2
+    params = {
+        "category": "nation",
+        "max": str(count),
+        "apikey": "20b9104ce03229cff48aa78a604b2f0c",
+    }
 
-api = NewsDataApiClient(apikey="pub_207422f778de16c8efc49f6c31ab50b1726ad")
+    response = requests.request("GET", site, params=params)
 
-# You can pass empty or with request parameters {ex. (country = "us")}
+    #function test by printing article titles, can be removed
+    titles = [] 
+    for x in range(count):
+        titles.append(response.json().get("articles")[x].get("title"))
+        print(titles[x])
 
-response = api.news_api( q= "ronaldo" , country = "us")
+    return response.json()['articles']
+
+getNewsArticle()
